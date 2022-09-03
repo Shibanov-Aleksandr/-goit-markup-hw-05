@@ -112,15 +112,19 @@ body {
 .link-nav:focus {
   color: var(--accent-color);
 }
-.link-nav .active::after {
+.list-nav .item {
+  position: relative;
+}
+.link-nav::after {
   position: absolute;
-  left: 0;
-  bottom: 0;
+  /* display: block; */
   content: "";
-  display: block;
-  width: 100%;
+  bottom: 0;
+  left: 0;
   height: 4px;
+  width: auto;
   border-radius: 2px;
+  background-color: var(--accent-color-bg);
   opacity: 1;
 }
 
