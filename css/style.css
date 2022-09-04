@@ -100,6 +100,7 @@ body {
 }
 
 .link-nav {
+  display: block;
   padding-bottom: 32px;
   padding-top: 32px;
   color: var(--secondary-color-text);
@@ -115,17 +116,15 @@ body {
 .list-nav .item {
   position: relative;
 }
-.link-nav::after {
+.active::after {
   position: absolute;
-  display: flex;
   content: "";
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   height: 4px;
   width: 100%;
   border-radius: 2px;
   background-color: var(--accent-color-bg);
-  opacity: 1;
 }
 .link-nav::after .active {
   opacity: 0;
@@ -358,7 +357,7 @@ body {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--main-color-darck-fon);
-  background-color: rgba(47, 48, 58, 0.4);
+  background-color: rgba(47, 48, 58, 0.8);
 }
 
 /* team */
@@ -408,6 +407,7 @@ body {
 }
 .social-list-icon {
   fill: rgba(175, 177, 184, 1);
+  transition: fill var(--transition-dur-and-func);
 }
 .social-list-link {
   display: flex;
@@ -417,7 +417,7 @@ body {
   height: 44px;
   border-radius: 50%;
   background-color: #fff;
-  transition: fill var(--transition-dur-and-func);
+  transition: background-color var(--transition-dur-and-func);
 }
 .social-list-link:hover,
 .social-list-link:focus {
@@ -452,7 +452,8 @@ body {
   border: 1px solid #afb1b8;
   border-radius: 4px;
   height: 92px;
-  transition: fill var(--transition-dur-and-func);
+  transition: fill var(--transition-dur-and-func),
+    border var(--transition-dur-and-func);
 }
 .clients-list-link:hover,
 .clients-list-link:focus {
@@ -519,6 +520,14 @@ body {
   font-size: 25px;
   line-height: 1.2;
 }
+.link-footer-address {
+  font-size: 14px;
+  line-height: 1.71;
+
+  letter-spacing: 0.03em;
+
+  color: #ffffff;
+}
 .address-webstudio {
   color: var(--main-color-darck-fon);
   font-style: normal;
@@ -555,7 +564,8 @@ body {
   border: 0px;
   border-radius: 4px;
   transition: background-color var(--transition-dur-and-func),
-    color var(--transition-dur-and-func);
+    color var(--transition-dur-and-func),
+    box-shadow var(--transition-dur-and-func);
 }
 .works-button:hover,
 .works-button:focus {
