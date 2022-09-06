@@ -107,17 +107,15 @@ body {
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: 0.02em;
-  transform: color var(--transition-dur-and-func);
+  transition: color var(--transition-dur-and-func);
 }
 
 .link-nav:hover,
 .link-nav:focus {
   color: var(--accent-color);
 }
-.list-nav .item {
-  position: relative;
-}
-.active::after {
+.link-nav.active::after {
+  color: var(--accent-color);
   position: absolute;
   content: "";
   bottom: -1px;
@@ -127,6 +125,19 @@ body {
   border-radius: 2px;
   background-color: var(--accent-color-bg);
 }
+.list-nav .item {
+  position: relative;
+}
+/* .active::after {
+  position: absolute;
+  content: "";
+  bottom: -1px;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+  background-color: var(--accent-color-bg);
+} */
 .link-nav::after .active {
   opacity: 0;
 }
@@ -157,6 +168,7 @@ body {
 .header-icon {
   fill: var(--mail-color-text);
   margin-right: 10px;
+  transition: fill var(--transition-dur-and-func);
 }
 .link-contacts-header:hover .header-icon,
 .link-contacts-header:focus .header-icon {
@@ -221,8 +233,7 @@ body {
 .hero-button:hover,
 .hero-button:focus {
   background-color: #188ce8;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  :4px ;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15) 4px;
 }
 .list-button .hero-button .active {
   background-color: var(--accent-color-bg);
@@ -235,6 +246,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity var(--transition-dur-and-func);
 }
 .backdrop.is-hidden {
   visibility: hidden;
@@ -259,12 +271,16 @@ body {
 
 @keyframes rotator {
   0% {
-    transform: scale(0);
+    transform: rotate(0);
     opacity: 0;
   }
   100% {
     transform: rotate(1);
     opacity: 1;
+  }
+  0% {
+    transform: rotate(0);
+    opacity: 0;
   }
 }
 .btn-modal {
@@ -610,14 +626,15 @@ body {
 .card-box {
   position: relative;
 }
-.portfolio-cards {
-  display: block;
-}
 
 .list-example > .portfolio-cards {
   flex-basis: calc((100% - 60px) / 3);
   margin-bottom: var(--card-set-gap);
   margin-right: var(--card-set-gap);
+}
+.portfolio-cards {
+  display: block;
+  transition: box-shadow var(--transition-dur-and-func);
 }
 .portfolio-cards:hover,
 .portfolio-cards:focus {
